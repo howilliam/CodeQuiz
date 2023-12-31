@@ -34,17 +34,20 @@ function displayQuestion() {
     });
 }
 
+let score = 0; // Initialize the score variable
+
 function checkAnswer(answer) {
     const correctAnswer = questions[currentQuestionIndex].correctAnswer;
 
     if (answer === correctAnswer) {
         // Correct answer
-        // Add your logic here if needed
-
+        score += 10
+        feedback.textContent = "Correct!";
     } else {
         // Incorrect answer
-        // Subtract time from the clock
-        time -= 10; // You can adjust the penalty time
+        score -= 5
+        time -= 10;
+        feedback.textContent = "Incorrect!";
     }
 
     // Move to the next question
@@ -84,7 +87,7 @@ function endQuiz() {
 
         // Clear existing content
         //highScoresContainer.innerHTML = "";
-        
+
         // Redirect to the high scores page
         window.location.href = "highscores.html";
 
