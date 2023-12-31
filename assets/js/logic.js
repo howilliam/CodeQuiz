@@ -19,7 +19,19 @@ function startQuiz() {
   }
   
   function displayQuestion() {
-    // Show question and choices
+    // Show question
+  const questionTitle = document.getElementById("question-title");
+  questionTitle.textContent = questions[currentQuestionIndex].question;
+
+  // Show choices
+  const choicesContainer = document.getElementById("choices");
+  choicesContainer.innerHTML = "";
+
+  questions[currentQuestionIndex].choices.forEach((choice) => {
+    const choiceButton = document.createElement("button");
+    choiceButton.textContent = choice;
+    choicesContainer.appendChild(choiceButton);
+  });
   }
   
   function checkAnswer(answer) {
