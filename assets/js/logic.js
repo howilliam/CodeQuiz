@@ -40,10 +40,26 @@ function startQuiz() {
   }
   
   function endQuiz() {
-    // Stop the timer
-    // Show end screen
-    // Display final score
-    // Allow the user to save initials and score
+     // Stop the timer
+  clearInterval(timerInterval);
+
+  // Hide questions
+  document.getElementById("questions").classList.add("hide");
+
+  // Show end screen
+  const endScreen = document.getElementById("end-screen");
+  endScreen.classList.remove("hide");
+
+  // Display final score
+  const finalScoreSpan = document.getElementById("final-score");
+  finalScoreSpan.textContent = time;
+
+  // Allow the user to save initials and score
+  document.getElementById("submit").addEventListener("click", function () {
+    const initials = document.getElementById("initials").value;
+    // Save the score and initials (You can implement this using localStorage)
+    // Redirect to the high scores page or perform any other desired actions
+  });
   }
   
   // Event listeners
