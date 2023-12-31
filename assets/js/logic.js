@@ -35,8 +35,27 @@ function startQuiz() {
   }
   
   function checkAnswer(answer) {
-    // Check if the answer is correct
-    // Update score and move to the next question
+    const correctAnswer = questions[currentQuestionIndex].correctAnswer;
+
+  if (answer === correctAnswer) {
+    // Correct answer
+    // Add your logic here if needed
+
+  } else {
+    // Incorrect answer
+    // Subtract time from the clock
+    time -= 10; // You can adjust the penalty time
+  }
+
+  // Move to the next question
+  currentQuestionIndex++;
+
+  // Check if the quiz is finished
+  if (currentQuestionIndex === questions.length) {
+    endQuiz();
+  } else {
+    displayQuestion();
+  }
   }
   
   function endQuiz() {
