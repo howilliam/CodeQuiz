@@ -5,9 +5,17 @@ let timerInterval;
 
 // Functions
 function startQuiz() {
-    // Hide start screen, show questions
-    // Start timer
-    // Display current question
+    // Hide start screen
+  document.getElementById("start-screen").classList.add("hide");
+
+  // Show questions
+  document.getElementById("questions").classList.remove("hide");
+
+  // Start timer
+  startTimer();
+
+  // Display current question
+  displayQuestion();
   }
   
   function displayQuestion() {
