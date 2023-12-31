@@ -10,7 +10,7 @@ N/A
 
 ## Usage
 
-This webpage can be accessed with the following link: https://howilliam.github.io/passwordGenerator/ 
+This webpage can be accessed with the following link: https://howilliam.github.io/CodeQuiz/  
 
 1. Click on the provided link to access the CodeQuiz.
 2. Start the quiz by clicking the "Start Quiz" button.
