@@ -82,6 +82,14 @@ function endQuiz() {
         highScores.push({ initials, score: time });
         localStorage.setItem("highScores", JSON.stringify(highScores));
 
+        // Clear existing content
+        highScoresContainer.innerHTML = "";
+
+        // Append new high score
+        const newScoreItem = document.createElement("li");
+        newScoreItem.textContent = `${initials}: ${time}`;
+        highScoresContainer.appendChild(newScoreItem);
+
         // Redirect to the high scores page
         window.location.href = "highscores.html";
 
