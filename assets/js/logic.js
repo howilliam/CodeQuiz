@@ -88,9 +88,6 @@ function endQuiz() {
         highScores.push({ initials, score: score });
         localStorage.setItem("highScores", JSON.stringify(highScores));
 
-        // Clear existing content
-        //highScoresContainer.innerHTML = "";
-
         // Redirect to the high scores page
         window.location.href = "highscores.html";
 
