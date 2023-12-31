@@ -38,16 +38,19 @@ let score = 0; // Initialize the score variable
 
 function checkAnswer(answer) {
     const correctAnswer = questions[currentQuestionIndex].correctAnswer;
+    const feedback = document.getElementById("feedback");
 
     if (answer === correctAnswer) {
         // Correct answer
         score += 10
         feedback.textContent = "Correct!";
+        feedback.classList.remove('hide');
     } else {
         // Incorrect answer
         score -= 5
         time -= 10;
         feedback.textContent = "Incorrect!";
+        feedback.classList.remove('hide');
     }
 
     // Move to the next question
@@ -74,7 +77,7 @@ function endQuiz() {
 
     // Display final score
     const finalScoreSpan = document.getElementById("final-score");
-    finalScoreSpan.textContent = time;
+    finalScoreSpan.textContent = score;
 
     // Allow the user to save initials and score
     document.getElementById("submit").addEventListener("click", function () {
@@ -82,7 +85,7 @@ function endQuiz() {
 
         // Save the score and initials to localStorage
         const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-        highScores.push({ initials, score: time });
+        highScores.push({ initials, score: score });
         localStorage.setItem("highScores", JSON.stringify(highScores));
 
         // Clear existing content
