@@ -81,6 +81,21 @@ function endQuiz() {
     });
 }
 
+function startTimer() {
+    // Update timer display every second
+    timerInterval = setInterval(function () {
+      const timerSpan = document.getElementById("time");
+      timerSpan.textContent = time;
+  
+      // Check if the time has run out
+      if (time <= 0) {
+        endQuiz();
+      } else {
+        time--;
+      }
+    }, 1000);
+  }
+
 // Event listeners
 document.getElementById("start").addEventListener("click", startQuiz);
 document.getElementById("choices").addEventListener("click", function (event) {
