@@ -76,25 +76,32 @@ function endQuiz() {
     // Allow the user to save initials and score
     document.getElementById("submit").addEventListener("click", function () {
         const initials = document.getElementById("initials").value;
-        // Save the score and initials (You can implement this using localStorage)
-        // Redirect to the high scores page or perform any other desired actions
+
+        // Save the score and initials to localStorage
+        const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+        highScores.push({ initials, score: time });
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+
+        // Redirect to the high scores page
+        window.location.href = "highscores.html";
+
     });
 }
 
 function startTimer() {
     // Update timer display every second
     timerInterval = setInterval(function () {
-      const timerSpan = document.getElementById("time");
-      timerSpan.textContent = time;
-  
-      // Check if the time has run out
-      if (time <= 0) {
-        endQuiz();
-      } else {
-        time--;
-      }
+        const timerSpan = document.getElementById("time");
+        timerSpan.textContent = time;
+
+        // Check if the time has run out
+        if (time <= 0) {
+            endQuiz();
+        } else {
+            time--;
+        }
     }, 1000);
-  }
+}
 
 // Event listeners
 document.getElementById("start").addEventListener("click", startQuiz);
